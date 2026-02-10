@@ -13,9 +13,10 @@ A continuación se presenta una comparativa de modelos utilizados para resolver 
 | Modelo | Técnica / Arquitectura | Accuracy | Fuente |
 | :--- | :--- | :--- | :--- |
 | **Baseline (MLP)** | Red densa simple (3 capas) | ~88% | Zalando Research |
-| **CNN Estándar** | Red Convolucional (2-3 capas) | ~92-93% | Keras Documentation |
-| **ResNet-18** | Red Residual (Deep Learning) | **94.9%** | Benchmarks públicos |
-| **WideResNet-28** | Arquitectura avanzada | **96.7%** | Estado del arte (SOTA) |
+| **CNN Estándar** | CNN simple (2–3 capas convolucionales) | ~92–93% | Keras Documentation |
+| **CNN + BN + Dropout** | CNN regularizada | ~94–95% | Implementaciones open-source |
+| **MobileNetV2** | Convoluciones separables en profundidad | **95–96%** | TensorFlow / PyTorch (Apache 2.0) |
+
 
 ## 3. Métricas de Evaluación
 Para medir el rendimiento de nuestros modelos utilizaremos:
@@ -25,7 +26,6 @@ Para medir el rendimiento de nuestros modelos utilizaremos:
 
 ## 4. Estructura del Proyecto
 * `notebooks/`: Contiene el análisis exploratorio (EDA) y los futuros modelos.
-* `data/`: Información sobre la fuente de datos.
 * `requirements.txt`: Librerías necesarias para ejecutar el proyecto.
 
 ## 5. Instrucciones de Ejecución
