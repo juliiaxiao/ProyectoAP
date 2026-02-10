@@ -29,4 +29,4 @@ Para medir el rendimiento de nuestros modelos utilizaremos:
 * `requirements.txt`: Librerías necesarias para ejecutar el proyecto.
 
 ## 5. Instrucciones de Ejecución
-El notebook principal `EDA_y_Carga.ipynb` está diseñado para ejecutarse directamente en **Google Colab**.
+El notebook principal `EDA.ipynb` está diseñado para ejecutarse directamente en **Google Colab**.
