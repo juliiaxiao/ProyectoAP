@@ -34,3 +34,40 @@ Para medir el rendimiento de nuestros modelos utilizaremos:
 
 ## 5. Instrucciones de Ejecución
 El notebook principal `EDA.ipynb` está diseñado para ejecutarse directamente en **Google Colab**.
+
+## 6. Cómo hacer un Pull (Actualizar tu copia local)
+
+Para descargar los últimos cambios del repositorio remoto a tu copia local, sigue estos pasos:
+
+1. **Abre una terminal** en la carpeta del proyecto (o en Google Colab usa `!` antes del comando).
+
+2. **Asegúrate de estar en la rama correcta:**
+   ```bash
+   git status
+   ```
+
+3. **Descarga los cambios remotos:**
+   ```bash
+   git pull origin main
+   ```
+   > Si la rama principal se llama `master`, usa `git pull origin master`.
+
+4. **Flujo de trabajo habitual con Git:**
+   ```bash
+   # 1. Ver el estado de tus archivos
+   git status
+
+   # 2. Añadir los cambios que quieres confirmar
+   git add .
+
+   # 3. Confirmar los cambios con un mensaje descriptivo
+   git commit -m "Descripción de los cambios"
+
+   # 4. Subir los cambios al repositorio remoto
+   git push origin main
+
+   # 5. Descargar los últimos cambios del repositorio remoto
+   git pull origin main
+   ```
+
+> **Nota:** Si tienes cambios locales sin confirmar y hay cambios remotos, Git puede pedir que primero hagas `commit` o `stash` de tus cambios antes de hacer `pull`.
