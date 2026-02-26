@@ -3,3 +3,5 @@ matplotlib
 tensorflow
 seaborn
 scikit-learn
+sklearn
+time
