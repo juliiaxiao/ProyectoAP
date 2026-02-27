@@ -39,13 +39,13 @@ Los notebooks está diseñados para ejecutarse directamente en **Google Colab**.
 
 | Modelo | Parámetros	| Train Acc |	Val Acc	|Test Acc |
 | :--- | :--- | :--- | :--- | :--- |
-| **Modelo Lineal (Softmax)** | 7,850 | 0.8700 | 0.8618 | 0.8451 |
-| **Machine Learning (SVM RBF)** | 15,760 | 0.9736 | 0.9038 | 0.8978 |
-| **Red Neuronal (MLP)** | 235,146 | 0.9315 |0.8866 |0.8801 |
+| **Modelo Lineal (Softmax)** | 7,850 | 0.8684 | 0.8537 |0.8430|
+| **Machine Learning (SVM RBF C=10)** | 15,760 | 0.9736 | 0.9038 | 0.8978 |
+| **Machine Learning (SVM RBF C=10 con HOG)** | 25,593,408 | 0.9999 | 0.9129 |0.9099|
+| **Machine Learning (SVM RBF C=1 con HOG)** | 25,593,408 |0.9500 | 0.9072 |0.9035|
+| **Red Neuronal (CNN)** | 1,726 | 0.8490 | 0.8454 | 0.8395 |
 
-* **Fase 1 (Lineal):** Establecimos un baseline sólido del 84.5%. El modelo es muy simple y no presenta overfitting, pero tiene un "techo" de aprendizaje debido a su naturaleza lineal.
-
-* **Fase 2 (Machine Learning):** Gracias al kernel RBF de la SVM, logramos capturar relaciones no lineales y rozar el 90% de acierto. Observamos un incremento en el overfitting (~7.6% de brecha), lo que indica una mayor complejidad del modelo.
-
-* **Fase 3 (Red Neuronal):** Implementamos el modelo más simple posible. El MLP muestra una capacidad de aprendizaje superior (93% en Train), aunque requiere monitorización para evitar el sobreentrenamiento.
+- **Fase 1 (Modelo Lineal):** Establecimos nuestro baseline inicial alimentando los píxeless a una regresión Softmax. Con 7,850 parámetros logramos un  84.30% en Test. La brecha entre Entrenamiento y Test es mínima (~2.5%), lo que demuestra que no hay overfitting, pero evidencia que hemos tocado el "techo" de aprendizaje de las fronteras lineales.
+- **Fase 2 (Machine Learning Clásico):** Al introducir descriptores espaciales (HOG) y un Kernel RBF no lineal, logramos romper la barrera del 90% de acierto. Sin embargo, esto demostró dos problemas: un gran overfitting inicial ($99.99\%$ en Train con $C=10$, mitigado al relajar el margen a $C=1$) y un coste computacional demasiado grande, requiriendo más de 25.5 millones de parámetros efectivos basados en sus vectores de soporte.
+- **Fase 3 (Deep Learning):** Buscando la arquitectura "más simple posible", diseñamos una Red Neuronal Convolucional (CNN) extremadamente ligera. Con tan solo 1,726 parámetros, el modelo es capaz de rozar el 84% en Test. Muestra una generalización casi perfecta, demostrando una eficiencia paramétrica inmensamente superior al Machine Learning clásico.
 
