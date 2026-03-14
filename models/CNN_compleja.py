@@ -67,12 +67,12 @@ def create_fashion_cnn_v3(input_shape=(28, 28, 3), num_classes=10):
         layers.Conv2D(32, (3,3), activation='relu', padding='same'),
         layers.BatchNormalization(),
         layers.MaxPooling2D((2,2)),
-        layers.Dropout(0.2),
+        #layers.Dropout(0.2),
 
         # Bloque 2 - Aplicamos SpatialDropout para forzar el uso de los 3 canales
         layers.Conv2D(64, (3,3), activation='relu', padding='same'),
         layers.BatchNormalization(),
-        layers.SpatialDropout2D(0.2), 
+        #layers.SpatialDropout2D(0.2), 
         layers.Conv2D(64, (3,3), activation='relu', padding='same'),
         layers.BatchNormalization(),
         layers.MaxPooling2D((2,2)),
@@ -80,13 +80,13 @@ def create_fashion_cnn_v3(input_shape=(28, 28, 3), num_classes=10):
         # Bloque 3 - Extracción profunda
         layers.Conv2D(128, (3,3), activation='relu', padding='same'),
         layers.BatchNormalization(),
-        layers.SpatialDropout2D(0.2),
+        #layers.SpatialDropout2D(0.2),
         layers.MaxPooling2D((2,2)),
 
         # Clasificador
         layers.GlobalAveragePooling2D(),
         layers.Dense(256, activation='relu'), # Aumentamos neuronas para procesar los nuevos canales
-        layers.Dropout(0.3),
+        #layers.Dropout(0.3),
         layers.Dense(num_classes, activation='softmax')
     ])
     return model
