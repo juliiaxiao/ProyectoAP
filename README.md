@@ -76,6 +76,5 @@ Se ha observado que el rendimiento de los modelos (especialmente en la CNN con C
  $$\mathcal{L} = -\sum_{i=1}^{M} y_i \log(\hat{y}_i)$$
 
  
-Por tanto, consideramos que nuestro modelo de 74,986 parámetros es el más eficiente al rozar el límite práctico del dataset sin comprometer la simplicidad exigida.
-
+Por tanto, consideramos que nuestro modelo de 74,986 parámetros representa el equilibrio entre la solución más refinada para el dataset y la maximización del acierto por cada parámetro invertido.
 
