@@ -63,10 +63,10 @@ def create_fashion_cnn_v5(input_shape=(28, 28, 3), num_classes=10):
     # <-- No hay MaxPooling aquí
 
     # En vuestro archivo .py, sección del Clasificador:
-    x = layers.Flatten()(x) # En lugar de GlobalAveragePooling2D
+    x = layers.GlobalAveragePooling2D()(x) 
     x = layers.Dense(512, activation='relu')(x)
     x = layers.BatchNormalization()(x)
-    x = layers.Dropout(0.5)(x) # Subimos un poco el dropout al usar Flatten
+    x = layers.Dropout(0.4)(x) # Reducimos ligeramente el dropout al usar GAP
     outputs = layers.Dense(num_classes, activation='softmax')(x)    
 
     model = models.Model(inputs=inputs, outputs=outputs)
