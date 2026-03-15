@@ -59,13 +59,13 @@ Los notebooks está diseñados para ejecutarse directamente en **Google Colab**.
 | **Attention Minimal** | 805 | 0.3871 | 0.3610 | 0.3605** |
 | **Attention CNN (CBAM)** | 168,479 | 0.0972 | 0.1060 | 0.0985 |
 | **ResNet18** | ~2,781,706 | 1.0000 | 0.9296 | 0.9270 |
-| **CNN con Atención (CBAM)** | 74,986 |  0.9140 | 0.9262 |  0.9173 |
+| **CNN con Atención** | 74,986 |  0.9140 | 0.9262 |  0.9173 |
 
 
 - **Fase 4 (Arquitecturas Transformer):** Experimentamos con el paradigma de atención global mediante un Transformer Autoencoder. Con 354,699 parámetros logramos un 80.30% en Test. Aunque supera la barrera del modelo lineal, la eficiencia es menor que en las CNNs para este dataset de baja resolución. Al reducir el modelo a un Transformer Minimal (27,770 parámetros), el acierto cayó al 73.20%, confirmando que estas arquitecturas requieren una mayor profundidad paramétrica para aprender representaciones útiles en Fashion-MNIST.
 - **Fase 5 (Atención Pura):** Buscando el límite inferior de complejidad, diseñamos un mecanismo de Attention Minimal con apenas 805 parámetros. El pobre rendimiento obtenido (36.05% en Test) demuestra que la atención por sí sola, sin una base convolucional previa que extraiga características espaciales, es insuficiente para distinguir la morfología de las prendas.
 - **Fase 6 (Redes Residuales Profundas):** Implementamos una ResNet18 para buscar el techo de precisión del proyecto. Logramos nuestro mejor resultado bruto con un 92.70% en Test, pero a un coste de 2,781,002 parámetros y con un evidente overfitting (100% en Train). A pesar de usar Focal Loss , la arquitectura resulta excesivamente compleja para la tarea, penalizando la eficiencia que buscamos en la asignatura.
-- **Fase 7 (Modelo Final - CNN con CBAM):** Nuestra solución definitiva integra un bloque de atención CBAM sobre una base convolucional ligera. Con solo 74,986 parámetros, alcanzamos un 91.73% en Test, logrando el equilibrio óptimo entre ligereza y capacidad predictiva. La mínima brecha entre Validación (92.62%) y Test demuestra una generalización robusta, validando nuestra estrategia de Data Augmentation y ajuste de hiperparámetros.
+- **Fase 7 (Modelo Final - CNN con atención):** Nuestra solución definitiva integra un bloque de atención CBAM sobre una base convolucional ligera. Con solo 74,986 parámetros, alcanzamos un 91.73% en Test, logrando el equilibrio óptimo entre ligereza y capacidad predictiva. La mínima brecha entre Validación (92.62%) y Test demuestra una generalización robusta, validando nuestra estrategia de Data Augmentation y ajuste de hiperparámetros.
 
 ## Análisis de la Cota de Acierto y Calidad del Dato
 
