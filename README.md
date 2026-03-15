@@ -71,6 +71,7 @@ Los notebooks está diseñados para ejecutarse directamente en **Google Colab**.
 
 Se ha observado que el rendimiento de los modelos (especialmente en la CNN con CBAM) tiende a estabilizarse en torno al 92% de accuracy en test. Tras un análisis profundo en el EDA, atribuimos esta limitación a dos factores críticos:
 - **Baja densidad de información:** Clases como Sandal o Ankle boot presentan una alta proporción de píxeles nulos (fondo), lo que dificulta la extracción de características en una resolución de $28 \times 28$.
+- **Ambigüedad Visual:** Hay ejemplares donde incluso para el ojo humano es imposible distinguir el tipo de prenda, estableciendo un techo logístico de acierto que no se puede superar sin caer en el overfitting de ruido.
 - **Solapamiento Inter-clase:** Existe un solapamiento estadístico significativo entre las clases Shirt, T-shirt/top y Coat. Forzar un acierto superior mediante arquitecturas más complejas (como la ResNet18) solo conduce a un escenario de sobreajuste ($Accuracy_{train} = 1.0$) sin una mejora real en la capacidad de generalización sobre la función de pérdida:
 
  $$\mathcal{L} = -\sum_{i=1}^{M} y_i \log(\hat{y}_i)$$
